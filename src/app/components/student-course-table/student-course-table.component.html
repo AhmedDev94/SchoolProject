@@ -1,0 +1,21 @@
+<table class="table text-center" *ngIf="coursesTab">
+    <thead>
+      <tr>
+          <th scope="col">ID</th>
+          <th scope="col">course</th>
+          <th scope="col">note</th>
+          <th scope="col">evaluation</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+     
+      <tr *ngFor ="let n of notesTab" >
+        <th scope="row">{{n._id}}</th>
+        <td> {{getCourseName(n.course)}}</td>
+        <td>{{ n.note }}</td>
+        <td>{{ n.evaluation }}</td>
+      </tr>
+    </tbody>
+  </table>
+

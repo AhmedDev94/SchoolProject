@@ -1,0 +1,34 @@
+<table class="table text-center">
+    <thead>
+      <tr>
+          <th scope="col">ID</th>
+          <th scope="col">name</th>
+          <th scope="col">speciality</th>
+          <th scope="col">courses</th>
+          <th scope="col">status</th>
+          
+          <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- tr will be generated matchesTab.length times -->
+      
+      <tr *ngFor =" let t of teachersTab">
+        <!-- matchesTab -->
+        <th scope="row">{{t._id}}</th>
+        <td>{{t.firstName}}</td>
+        <td>{{t.speciality}}</td>
+        <td><span *ngFor="let courses of t.courses ; let last = last "> {{ courses.name }}{{ last ? '' : ', ' }} </span></td>
+        <td>{{t.status}}</td>
+       
+        <td > <div class="btn-group">
+          <button class="btn btn-success mr-2" (click)="displayTeacher(t._id)">display</button>
+          <button class="btn btn-warning mr-2" (click)="updateTeacher(t._id)">Uptade</button>
+          <button class="btn btn-primary" (click)="validateTeacher(t._id)">validate</button>
+          <button class="btn btn-danger" (click)="deleteTeacher(t._id)">Delete</button>
+      </div>
+         </td>
+      </tr>
+    
+    </tbody> 
+  </table>

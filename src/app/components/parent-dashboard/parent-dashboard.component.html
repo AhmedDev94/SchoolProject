@@ -1,0 +1,47 @@
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="bg-light rounded">
+            <div class="row g-0">
+                <div class="col-lg-6 wow fadeIn mx-auto" data-wow-delay="0.1s">
+                    <div class="h-100 d-flex flex-column justify-content-center p-5 "  >
+                        <h1 class="mb-4" > my Child  Notes</h1>
+                        <form [formGroup]="searchForm">
+                          <div class="row g-3 d-flex " >
+                              <div class="col-sm-12">
+                                  <div class="form-floating">
+                                      <input type="text" class="form-control border-0" formControlName="studentTel"  id="studentTel" placeholder="studentTel">
+                                      <label for="studentTel"> studentTel</label>
+                                  </div>
+                              </div>
+                              <div *ngIf="searchForm.controls['studentTel'].invalid && 
+                                    (searchForm.controls['studentTel'].touched ||
+                                    searchForm.controls['studentTel'].dirty)">
+                                      <div *ngIf="searchForm.controls['studentTel'].errors.required">studentTel is required</div>
+                                    </div>
+                             
+                              <div class="col-12">
+                                  <button class="btn btn-primary w-100 py-3" [disabled]="!searchForm.valid" (click)="search()" type="submit">Search</button>
+                              </div>
+                              <span *ngIf="telFound == false">{{errorMsg}}</span>
+                          </div>
+                      </form>
+
+                        <table class="table text-center"  *ngIf="telFound == true">
+                            <thead>
+                              <tr>
+                                  <th scope="col">name</th>
+                                  <th scope="col">course</th>
+                                  <th scope="col">note</th>
+                                  <th scope="col">evaluation</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor ="let n of notesTab" >
+                                <th scope="row">{{n.student.firstName}}</th>
+                                <td> {{n.course.name}} </td>
+                                <td> {{n.note}}</td>
+                                <td>{{n.evaluation }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                      

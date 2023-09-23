@@ -1,0 +1,31 @@
+<div class="container-xxl py-5">
+    <div class="custom-container">
+    <div class="container">
+        <div class="bg-light rounded">
+            <div class="row g-0">
+                <div class="col-lg-6 wow fadeIn mx-auto" data-wow-delay="0.1s">
+                    <div class="h-100 d-flex flex-column justify-content-center p-5 "  >
+                        <h1 class="mb-4">edit student</h1>
+                        <form #editStudentForm = "ngForm" (ngSubmit)="validate()">
+                            <div class="row g-3 d-flex " >
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" [(ngModel)]="student.firstName" name = "name" class="form-control border-0"  id="name" placeholder="name">
+                                        <label for="name"> name</label>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3"  type="submit">validate</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

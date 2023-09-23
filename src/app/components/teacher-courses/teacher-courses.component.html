@@ -1,0 +1,38 @@
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">course name</th>
+      <th scope="col">description</th>
+      <th scope="col">duration</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of coursesTab">
+      <th scope="row">{{ c._id }}</th>
+      <td>
+        {{ c.name }}
+      </td>
+      <td>{{ c.description }}</td>
+      <td>{{ c.duration }}</td>
+      <td>
+        <div class="btn-group">
+          <button class="btn btn-success mr-2" (click)="editCourse(c._id)">
+            edit
+          </button>
+          <button
+            class="btn btn-warning mr-2" (click)="displayAllStudents(c._id)">
+            display students
+          </button>
+          <button class="btn btn-primary mr-2" (click)="displayCourse(c._id)">
+            display course
+          </button>
+          <button class="btn btn-danger mr-2" (click)="deletCourse(c._id)">
+            delete
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

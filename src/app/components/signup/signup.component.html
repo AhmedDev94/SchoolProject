@@ -1,0 +1,162 @@
+<div class="container-xxl py-5">
+    <div class="custom-container">
+    <div class="container">
+        <div class="bg-light rounded">
+            <div class="row g-0">
+                <div class="col-lg-6 wow fadeIn mx-auto" data-wow-delay="0.1s">
+                    <div class="h-100 d-flex flex-column justify-content-center p-5 "  >
+                        <h1 class="mb-4" *ngIf="myPath == '/subscription-teacher'"> signup Teacher</h1>
+                        <h1 class="mb-4" *ngIf="myPath == '/subscription-student'"> signup Student</h1>
+                        <h1 class="mb-4" *ngIf="myPath == '/subscription-parent'"> signup Parent</h1>
+                        <h1 class="mb-4" *ngIf="myPath == '/subscription-admin'"> signup Admin</h1>
+                        <form [formGroup]="signupForm">
+                            <div class="row g-3 d-flex " >
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0" formControlName="firstName" id="gname" placeholder="firstName">
+                                        <label for="gname">firstName</label>
+                              </div>
+                                <div *ngIf="signupForm.controls['firstName'].invalid && 
+                                      (signupForm.controls['firstName'].touched ||
+                                      signupForm.controls['firstName'].dirty)">
+                                    <div *ngIf="signupForm.controls['firstName'].errors.required">firstName is required</div>
+                                    <div *ngIf="signupForm.controls['firstName'].errors.minlength">firstName must have at least 3 chars</div>
+                                </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0"  formControlName="lastName" id="gname" placeholder="lastName">
+                                        <label for="gname">lastName</label>
+                                    </div>
+                                    <div *ngIf="signupForm.controls['lastName'].invalid && 
+                                    (signupForm.controls['lastName'].touched ||
+                                    signupForm.controls['lastName'].dirty)">
+                                    <div *ngIf="signupForm.controls['lastName'].errors.required">lastName is required</div>
+                                   <div *ngIf="signupForm.controls['lastName'].errors.minlength">lastName must have at least 4 chars</div>
+                                   </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control border-0"formControlName="email"  id="gname" placeholder="email">
+                                        <label for="gname">email</label>
+                                    </div>
+                                    <div *ngIf="signupForm.controls['email'].invalid && 
+                                    (signupForm.controls['email'].touched ||
+                                    signupForm.controls['email'].dirty)">
+                                      <div *ngIf="signupForm.controls['email'].errors.required"> email is required</div>
+                                    <div *ngIf="signupForm.controls['email'].errors.email"> please check email format</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control border-0" formControlName="tel" id="gname" placeholder="tel">
+                                        <label for="gname">tel</label>
+                                    </div>
+                                    <div *ngIf="signupForm.controls['tel'].invalid && 
+                                  (signupForm.controls['tel'].touched ||
+                                  signupForm.controls['tel'].dirty)">
+                                    <div *ngIf="signupForm.controls['tel'].errors.required">tel is required</div>
+                                    <div *ngIf="signupForm.controls['tel'].errors.min"> tel need at least 8 digits</div>
+                                  </div>
+                                </div>
+                                
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0" formControlName="adresse" id="cname" placeholder="adresse">
+                                        <label for="cname">adresse</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control border-0" formControlName="pwd" id="cname" placeholder="pwd">
+                                        <label for="cname">pwd</label>
+                                    </div>
+                                    <div *ngIf="signupForm.controls['pwd'].invalid && 
+                                      (signupForm.controls['pwd'].touched ||
+                                      signupForm.controls['pwd'].dirty)">
+                                        <div *ngIf="signupForm.controls['pwd'].errors.required">pwd is required</div>
+                                        <div *ngIf="signupForm.controls['pwd'].errors.minlength"> pwd need at least 8 chars</div>
+                                        <div *ngIf="signupForm.controls['pwd'].errors.maxlength"> pwd have at most 12 chars</div>
+                                      </div>
+                                </div>   
+                                <div class="col-sm-12" *ngIf="myPath == '/subscription-teacher'">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0" formControlName="speciality" id="cname" placeholder="speciality">
+                                        <label for="cname">speciality</label>
+                                    </div>
+                                </div> 
+                                <div class="col-sm-12" *ngIf="myPath == '/subscription-parent'">
+                                    <!-- <div class="form-floating">
+                                        <input type="number" class="form-control border-0" formControlName="studentTel" id="cname" placeholder="student tel">
+                                        <label for="cname">student tel</label>
+                                        <button type="button" class="btn btn-success" (click)="addStudentTel()">Add Student Tel</button>
+                                    </div>
+                                    <div *ngIf="signupForm.controls['studentTel'].invalid && 
+                                  (signupForm.controls['studentTel'].touched ||
+                                  signupForm.controls['studentTel'].dirty)">
+                                    <div *ngIf="signupForm.controls['studentTel'].errors.required">studentTel is required</div>
+                                    <div *ngIf="signupForm.controls['studentTel'].errors.min"> studentTel need at least 8 digits</div>
+                                  </div> -->
+                                  <div formArrayName="studentTel">
+                                    <div *ngFor="let control of signupForm.get('studentTel').controls; let i = index">
+                                      <div class="col-sm-12">
+                                        <div class="form-floating">
+                                          <input type="string" class="form-control border-0" [formControl]="control" placeholder="Student Tel">
+                                          <label>Student Tel</label>
+                                        </div>
+                                        <div *ngIf="control.hasError('required') && (control.dirty || control.touched)">
+                                          Student Tel is required
+                                        </div>
+                                        <div *ngIf="control.hasError('min') && (control.dirty || control.touched)">
+                                          Student Tel must have at least 8 digits
+                                        </div>
+                                       
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <button type="button" class="btn btn-success" (click)="addStudentTel()">Add Student Tel</button>
+                                 
+                                  
+                                </div> 
+                                <div *ngIf="myPath == '/subscription-student'" >         
+                                <div class="form-floating" style="visibility: hidden; display: none;" >
+                                    <input type="file" class="form-control" #filePicker (change)="onImageSelected($event)">
+                                  </div>
+                                  <div class="text-center" style="margin-bottom: 20px;">
+                                    <button class="btn btn-warning" (click)="filePicker.click()">
+                                      seelect your avatar
+                                    </button>
+                                  </div>
+                                  <div class="text-center mb-2"> 
+                                    <img [src]="imagePreview" *ngIf ="imagePreview" alt="" style="width: 200px;">
+                                  </div>
+                                </div>
+                                <div *ngIf="myPath == '/subscription-teacher'">
+                                  <div  class="form-floating" style="visibility: hidden; display: none;" >
+                                    <input type="file"  accept=".pdf" class="form-control" #filePicker (change)="onFileSelected($event)">
+                                  </div>
+                                  <div class="text-center" style="margin-bottom: 20px;">
+                                    <button class="btn btn-warning" (click)="filePicker.click()">
+                                      seelect your CV file
+                                    </button>
+                                  </div>
+                                  <div class="text-center mb-2"> 
+                                    <!-- Display the PDF icon or a link to the selected PDF file -->
+                                    <a *ngIf="pdfFile" [href]="pdfFile" target="_blank">Open PDF</a>
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                                  <span>{{errorMsg}}</span>
+                                    <button class="btn btn-primary w-100 py-3" [disabled]="!signupForm.valid" type="submit" (click)="signup()">Singup</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+

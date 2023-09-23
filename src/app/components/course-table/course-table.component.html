@@ -1,0 +1,29 @@
+<table class="table text-center">
+    <thead>
+      <tr>
+          <th scope="col">ID</th>
+          <th scope="col">name</th>
+          <th scope="col">teacher</th>
+          <th scope="col">description</th>
+          <th scope="col">duration</th>
+          <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- tr will be generated matchesTab.length times -->
+      
+      <tr *ngFor ="let c of coursesTab" >
+        <!-- matchesTab -->
+        <th scope="row">{{c._id}}</th>
+        <td>{{c.name}}</td>
+        <td>{{c.teacher}}</td>
+        <td>{{c.description}}</td>
+        <td>{{c.duration}}</td>
+        <td>
+          <div class="btn-group">
+          <button class="btn btn-success mr-2" (click)="displayCourse(c._id)">display </button>
+          <!-- <button class="btn btn-warning mr-2" (click)="updateCourse(c._id)" >Uptade</button> -->
+          <button class="btn btn-primary" (click)="deleteCourse(c._id)">Delete</button> 
+        </div>
+         </td>
+      </tr>

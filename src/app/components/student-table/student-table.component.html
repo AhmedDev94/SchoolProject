@@ -1,0 +1,32 @@
+<table class="table text-center">
+    <thead>
+      <tr>
+          <th scope="col">ID</th>
+          <th scope="col">name</th>
+          <th scope="col">courses</th>
+          <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- tr will be generated StudentesTab.length times -->
+      
+      <tr *ngFor="let s of studentsTab">
+        <!-- matchesTab -->
+        <th scope="row">{{s._id}}</th>
+        <td>{{s.firstName}}</td>
+        <td> 
+          <span *ngFor="let course of s.courses; let last = last">
+          {{ course.name }}{{ last ? '' : ', ' }}
+        </span>
+        </td>
+        
+        <td>
+          <div class="btn-group">
+
+          <button class="btn btn-success mr-2" (click)="displayStudent(s._id)">display</button>
+          <button class="btn btn-warning mr-2" (click)="updateStudent(s._id)" >Uptade</button>
+          <button class="btn btn-primary" (click)="affectStudent(s._id)">affect</button>
+          <button class="btn btn-danger" (click)="deleteStudent(s._id)">Delete</button> 
+        </div>
+         </td>
+      </tr>

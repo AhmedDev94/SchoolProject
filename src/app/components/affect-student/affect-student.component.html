@@ -1,0 +1,34 @@
+<div class="container-xxl py-5">
+    <div class="custom-container">
+      <div class="container">
+        <div class="bg-light rounded">
+          <div class="row g-0">
+            <div class="col-lg-6 wow fadeIn mx-auto" data-wow-delay="0.1s">
+              <div class="h-100 d-flex flex-column justify-content-center p-5">
+                <h1 class="mb-4">Affect Student</h1>
+                <form #affectStudent="ngForm" (ngSubmit)="validate()">
+                  <div class="row g-3 d-flex">
+                    <div class="col-sm-12">
+                      <div class="form-floating">
+                        <!-- Use select element with ngModel to bind the selected course -->
+                        <select [(ngModel)]="course" name="courseList" class="form-select border-0" id="studentsList" (change)="getCourseID($event)">
+                          <option value="" disabled selected>Select a course</option>
+                          <!-- Iterate through coursesTab to generate options -->
+                          <option *ngFor="let course of coursesTab" [value]="course._id">{{ course.name }}</option>
+                        </select>
+                        <label for="studentsList">Course List</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary w-100 py-3" type="submit">Affect</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

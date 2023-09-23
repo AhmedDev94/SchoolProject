@@ -1,0 +1,54 @@
+<div class="container-xxl py-5">
+    <div class="custom-container">
+    <div class="container">
+        <div class="bg-light rounded">
+            <div class="row g-0">
+                <div class="col-lg-6 wow fadeIn mx-auto" data-wow-delay="0.1s">
+                    <div class="h-100 d-flex flex-column justify-content-center p-5 "  >
+                        <h1 class="mb-4">edit Course</h1>
+                        <form #editCourseForm = "ngForm" (ngSubmit)="validate()">
+                            <div class="row g-3 d-flex " >
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" [(ngModel)]="course.name" name = "name" class="form-control border-0"  id="name" placeholder="name">
+                                        <label for="name"> name</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" [(ngModel)]="course.description" name = "description" class="form-control border-0"  id="name" placeholder="name">
+                                        <label for="name"> description </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" [(ngModel)]="course.duration" name = "duration" class="form-control border-0"  id="name" placeholder="name">
+                                        <label for="name"> duration</label>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" [(ngModel)]="course.teacher" name = "teacher" class="form-control border-0"   id="teacher" placeholder="teacher">
+                                        <label for="teacher"> teacher</label>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="number" [(ngModel)]="course.studentNumber" name = "studentNumber" class="form-control border-0"   id="studentNumber" placeholder="studentNumber">
+                                        <label for="studentNumber"> studentNumber</label>
+                                    </div>
+                                </div> -->
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3"  type="submit">validate</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+

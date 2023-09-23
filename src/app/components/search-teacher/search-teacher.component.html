@@ -1,0 +1,50 @@
+<div class="container-xxl py-5">
+    <div class="custom-container">
+    <div class="container">
+        <div class="bg-light rounded">
+            <div class="row g-0">
+                <div class="col-lg-6 wow fadeIn mx-auto" data-wow-delay="0.1s">
+                    <div class="h-100 d-flex flex-column justify-content-center p-5 "  >
+                        <h1 class="mb-4">Search Teacher</h1>
+                        <form #searchTeacher = "ngForm" (ngSubmit)="search()">
+                            <div class="row g-3 d-flex " >
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" [(ngModel)]="user.speciality" name = "speciality" class="form-control border-0"  id="speciality" placeholder="SearchByspeciality">
+                                        <label for="SearchByspeciality"> SearchBySpeciality</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3"   [disabled]="!user" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                        <table class="table text-center" *ngIf="showTable==true" >
+                            <thead>
+                              <tr>
+                                  <th scope="col">first Name</th>
+                                  <th scope="col">Last Name</th>
+                                  <th scope="col">Courses</th>
+                                  <th scope="col">Speciality</th>
+                                  <th scope="col">tel</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let teacher of teacher" >
+                                <th scope="row">{{ teacher.firstName }}</th>
+                                <td> {{teacher.lastName}} </td>
+                                <td> <span *ngFor = "let c of teacher.courses ;  let last = last">{{ c.name }} {{ !last ? ', ' : '' }}   </span> </td>
+                                <td>{{teacher.speciality }}</td>
+                                <td>{{teacher.tel }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+

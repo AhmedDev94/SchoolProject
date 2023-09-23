@@ -1,0 +1,6 @@
+.custom-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* This will center vertically in the viewport */
+}
