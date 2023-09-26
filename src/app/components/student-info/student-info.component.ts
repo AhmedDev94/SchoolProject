@@ -16,8 +16,9 @@ export class StudentInfoComponent implements OnInit {
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
     this.userService.getUserById(this.id).subscribe((data)=>{
-      console.log("here object from BE", data);
+     
       this.findedStudent = data.user;
+      console.log("here finded student", this.findedStudent);
     })
   }
 

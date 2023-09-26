@@ -1,15 +1,15 @@
 <div class="classes-item">
     <div class="bg-light rounded-circle w-75 mx-auto p-3">
-        <img class="img-fluid rounded-circle" src="{{findedStudent.avatar}}" alt="">
+        <img class="img-fluid rounded-circle" *ngIf="findedStudent && findedStudent.avatar" src="findedStudent.avatar"  alt="">
     </div>
     <div class="bg-light rounded p-4 pt-5 mt-n5">
-        <a class="d-block text-center h3 mt-3 mb-4" href=""> {{findedStudent.firstName}}</a>
+        <a class="d-block text-center h3 mt-3 mb-4" href="" *ngIf="findedStudent"> {{findedStudent.firstName}}</a>
         <div class="d-flex align-items-center justify-content-between mb-4">
             <div class="d-flex align-items-center">
                 <img class="rounded-circle flex-shrink-0" src="assets/img/user.jpg" alt="" style="width: 45px; height: 45px;">
                 <div class="ms-3">
-                    <h6 class="text-primary mb-1">course :{{findedStudent.course}}</h6>
-                    <small>evaluation : {{findedStudent.evaluation}}</small>
+                    <h6 class="text-primary mb-1" *ngIf="findedStudent">courses :{{findedStudent.courses}}</h6>
+                    <small *ngIf="findedStudent">evaluation : {{findedStudent.notes}}</small>
                 </div>
             </div>
             

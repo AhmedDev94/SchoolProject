@@ -126,6 +126,10 @@ export class SignupComponent implements OnInit {
       const studentTelArray = this.signupForm.get('studentTel') as FormArray;
       studentTelArray.push(this.formBuilder.control('', [Validators.required, Validators.minLength(8)]));
     }
+    removeStudentTel(index: number) {
+      const studentTelArray = this.signupForm.get('studentTel') as FormArray;
+      studentTelArray.removeAt(index);
+    }
     
   sendEmail() {
     const emailData = {

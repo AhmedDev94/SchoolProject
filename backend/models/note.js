@@ -23,5 +23,5 @@ const noteSchema = mongoose.Schema({
 
 // AFFECT MODEL NAME TO SCHEMA
 const note = mongoose.model("Note", noteSchema);
-// export note
+//// Export the router  to make it accessible in other files 
 module.exports = note;

@@ -26,7 +26,7 @@ export class EditCourseComponent implements OnInit {
   validate(){
     this.CourseService.updatecourse(this.course).subscribe((result)=>{
       console.log("here s the result after update" , result.msg) ;
-      this.router.navigate(["admin"])
+      this.router.navigate(["teacher-dashboard"])
      })
   }
 }

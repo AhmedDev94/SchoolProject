@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto">
             <a href="index.html" class="nav-item nav-link active">Home</a>
-            <a href="classes.html" class="nav-item nav-link">Classes</a>
+            
             <a *ngIf = "!isLoggedIn() " routerLink="signin" class="nav-item nav-link" >login</a>
             <a  *ngIf = "isLoggedIn() && user.role =='teacher'" routerLink="addCourse" class="nav-item nav-link">addCourse</a>
             <a  routerLink="searchTeacher" class="nav-item nav-link">SearchTeacher</a>
@@ -19,11 +19,11 @@
                   <a  routerLink="subscription-teacher" class="dropdown-item">singup Teacher</a>
                   <a routerLink="subscription-student" class="dropdown-item">singup Student</a>
                   <a routerLink="subscription-parent" class="dropdown-item">singup Parent</a>
-                  <a routerLink="subscription-admin" class="dropdown-item">singup Admin</a>
+                 
                 </div>
             </div>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">dashboards</a>
+                <a *ngIf ="isLoggedIn()" href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">dashboards</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
                       <a  *ngIf = "isLoggedIn() && user.role =='teacher'" routerLink="teacher-dashboard" class="dropdown-item">dashoard teacher</a>
                       <a  *ngIf = "isLoggedIn() && user.role =='student'" routerLink="student-dashboard" class="dropdown-item">dashoard Student</a>
@@ -32,7 +32,7 @@
                       </div>
                       
                 </div>
-            <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+       
         </div>
         <a  *ngIf = "isLoggedIn()" href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block" (click)="logout()">log out<i class="fa fa-arrow-right ms-3"></i></a>
     </div>

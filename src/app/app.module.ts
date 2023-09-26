@@ -21,7 +21,7 @@ import { StudentTableComponent } from './components/student-table/student-table.
 import { CourseInfoComponent } from './components/course-info/course-info.component';
 import { TeacherInfoComponent } from './components/teacher-info/teacher-info.component';
 import { StudentInfoComponent } from './components/student-info/student-info.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { EditCourseComponent } from './components/edit-course/edit-course.component';
 import { EditStudentComponent } from './components/edit-student/edit-student.component';
 import { EditTeacherComponent } from './components/edit-teacher/edit-teacher.component';
@@ -33,6 +33,7 @@ import { StudentCourseTableComponent } from './components/student-course-table/s
 import { TeacherTableComponent } from './components/teacher-table/teacher-table.component';
 import { TeacherCoursesComponent } from './components/teacher-courses/teacher-courses.component';
 import { AffectStudentComponent } from './components/affect-student/affect-student.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,11 @@ import { AffectStudentComponent } from './components/affect-student/affect-stude
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

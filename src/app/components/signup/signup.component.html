@@ -86,17 +86,7 @@
                                     </div>
                                 </div> 
                                 <div class="col-sm-12" *ngIf="myPath == '/subscription-parent'">
-                                    <!-- <div class="form-floating">
-                                        <input type="number" class="form-control border-0" formControlName="studentTel" id="cname" placeholder="student tel">
-                                        <label for="cname">student tel</label>
-                                        <button type="button" class="btn btn-success" (click)="addStudentTel()">Add Student Tel</button>
-                                    </div>
-                                    <div *ngIf="signupForm.controls['studentTel'].invalid && 
-                                  (signupForm.controls['studentTel'].touched ||
-                                  signupForm.controls['studentTel'].dirty)">
-                                    <div *ngIf="signupForm.controls['studentTel'].errors.required">studentTel is required</div>
-                                    <div *ngIf="signupForm.controls['studentTel'].errors.min"> studentTel need at least 8 digits</div>
-                                  </div> -->
+                                  
                                   <div formArrayName="studentTel">
                                     <div *ngFor="let control of signupForm.get('studentTel').controls; let i = index">
                                       <div class="col-sm-12">
@@ -114,6 +104,8 @@
                                       </div>
                                     </div>
                                   </div>
+                                  <button type="button" class="btn btn-danger" (click)="removeStudentTel(i)" style="margin-right: 20px;">Delete</button>
+                                  
                                   <button type="button" class="btn btn-success" (click)="addStudentTel()">Add Student Tel</button>
                                  
                                   
